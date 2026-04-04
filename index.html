@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rachana Dighe | Architecting Content Ecosystems</title>
+  <link rel="stylesheet" href="output.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .brand-color {
+      color: #9B26AF;
+    }
+
+    .brand-bg {
+      background-color: #9B26AF;
+    }
+
+    /* =============================================
+       PROJECT CARD FIX - Responsive image scaling
+       ============================================= */
+    .project-card {
+      /* Remove fixed heights — use aspect ratio instead */
+      height: auto !important;
+      aspect-ratio: 4 / 3;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+
+    @media (max-width: 640px) {
+      .project-card {
+        /* aspect-ratio: 3 / 2; */
+      }
+    }
+
+    /* Mobile responsive improvements */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-study-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      * {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex justify-between items-center">
+      <div class="text-xl sm:text-2xl font-semibold brand-color">Rachana Dighe</div>
+
+      <!-- Desktop Navigation -->
+      <div class="nav-links hidden md:flex items-center gap-6 sm:gap-8 lg:gap-10 text-sm font-medium">
+        <a href="#" class="hover:brand-color transition-colors">Work</a>
+        <a href="#" class="hover:brand-color transition-colors">Services</a>
+        <a href="#" class="hover:brand-color transition-colors">Process</a>
+        <a href="#" class="hover:brand-color transition-colors">About</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="mobile-menu-btn md:hidden brand-bg text-white p-2 flex items-center justify-center rounded-lg hover:bg-[#9B26AF] transition"
+        onclick="toggleMobileMenu()">
+        <!-- Hamburger Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Desktop CTA Button -->
+      <button
+        class="hidden md:block brand-bg text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm font-semibold hover:bg-[#9B26AF] transition">
+        Let's Connect
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobileMenu" class="nav-links md:hidden">
+      <a href="#" class="hover:brand-color transition-colors py-2">Work</a>
+      <a href="#" class="hover:brand-color transition-colors py-2">Services</a>
+      <a href="#" class="hover:brand-color transition-colors py-2">Process</a>
+      <a href="#" class="hover:brand-color transition-colors py-2">About</a>
+      <button
+        class="brand-bg text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#9B26AF] transition mt-2 w-full">
+        Let's Connect
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="py-12 sm:py-16 md:py-20 lg:py-28 bg-gradient-to-br from-[#fdf4ff] to-[#f9e8ff]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-12 gap-8 sm:gap-12 items-center">
+        <div class="md:col-span-7 order-last md:order-first">
+          <div
+            class="inline-flex items-center gap-2 bg-[#FFD9DF] px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8 border text-[#A40049]">
+            ARCHITECTING CONTENT ECOSYSTEMS
+          </div>
+          <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight">
+            I don't just write content.<br>
+            <span class="brand-color">I build communication that works.</span>
+          </h1>
+          <p class="mt-6 sm:mt-8 lg:mt-10 text-base sm:text-lg lg:text-xl text-gray-600 max-w-lg">
+            Content & Social Media Strategist with an architectural lens.<br>
+            Translating complex B2B, Tech, and AEC ideas into strategic digital narratives.
+          </p>
+          <div class="mt-8 sm:mt-10 lg:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <button
+              class="brand-bg text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-[#9B26AF] w-full sm:w-auto">View
+              Work Samples</button>
+            <button
+              class="border-2 border-gray-300 hover:border-[#9B26AF] px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg w-full sm:w-auto">Get
+              in Touch</button>
+          </div>
+        </div>
+        <div class="md:col-span-5 relative mb-8 md:mb-0 order-first md:order-last">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-[#9B26AF]/20 to-transparent rounded-3xl blur-xl transform translate-y-4">
+          </div>
+          <img src="IMG_0626.png" alt="Rachana Dighe"
+            class="relative rounded-3xl shadow-2xl w-full h-auto object-cover border-2 border-white">
+
+          <!-- Floating Badge -->
+          <div
+            class="absolute -bottom-6 -left-4 sm:-left-8 bg-white p-4 rounded-xl shadow-lg border border-gray-100 flex items-center gap-4 hidden sm:flex">
+            <div class="bg-[#f9e8ff] p-2 rounded-full text-[#9B26AF]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-gray-800">Proven Growth</p>
+              <p class="text-xs text-gray-500">Data-driven</p>
+            </div>
+          </div>
+
+          <!-- Right Floating Badge -->
+          <div
+            class="absolute top-12 -right-4 sm:-right-8 bg-white p-4 rounded-xl shadow-lg border border-gray-100 flex items-center gap-4 hidden sm:flex">
+            <div class="bg-[#f9e8ff] p-2 rounded-full text-[#9B26AF]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-gray-800">6+ Years</p>
+              <p class="text-xs text-gray-500">Experience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio Section -->
+  <section class="py-12 sm:py-16 md:py-20 lg:py-24 text-white"
+    style="background: url('./AboutUs.png') center/cover no-repeat;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+        <div class="rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl">
+          <img src="./Me (1).png" alt="Portrait" class="w-full h-auto">
+        </div>
+        <div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#333333] font-semibold mb-6 sm:mb-8">From
+            Blueprints to
+            Brand Narratives</h2>
+          <div class="space-y-4 sm:space-y-6 text-gray-600 text-sm sm:text-base lg:text-[17px]">
+            <p>My journey began with a B.Arch (Bachelor of Architecture)... Over 6+ years, I've translated
+              that thinking
+              into content and marketing...</p>
+            <p>After completing my MSc in Digital Marketing from Oxford Brookes University...</p>
+          </div>
+          <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-8">
+            <div
+              class="bg-white border border-gray-100 rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-left">
+              <div class="text-2xl sm:text-3xl font-bold brand-color">6+</div>
+              <div class="text-xs sm:text-sm text-gray-500">YEARS EXPERIENCE</div>
+            </div>
+            <div
+              class="bg-white border border-gray-100 rounded-xl sm:rounded-2xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-left">
+              <div class="text-2xl sm:text-3xl font-bold brand-color text-[#B91156]">B2B & B2C</div>
+              <div class="text-xs sm:text-sm text-gray-500">INDUSTRY EXPERIENCE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I Bring to the Table -->
+  <section class="py-12 sm:py-16 md:py-20 lg:py-24"
+    style="background: url('./Case Studies Section.png') center/cover no-repeat;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 sm:mb-12 lg:mb-16">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold">What I Bring to the Table</h2>
+        <p class="text-gray-500 mt-2 sm:mt-3 text-sm sm:text-base">Rather than 'tasks', I focus on the
+          structural
+          integrity of your brand's voice.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div
+          class="bg-[#F5F0FF] p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="./Content Strategy.png" alt="Content Strategy"
+            class="w-17 h-27 object-contain mb-3 sm:mb-4 lg:mb-5 ">
+          <h3 class="font-semibold text-base sm:text-lg lg:text-xl mb-2 sm:mb-3">Content Strategy</h3>
+          <p class="text-gray-600 text-sm sm:text-base lg:text-[15px]">Developing multi-channel blueprints
+            that align
+            your business goals with audience behavior.</p>
+        </div>
+        <div
+          class="bg-[#F5F0FF] p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="./Social Ecosystems.png" alt="Social Ecosystems"
+            class="w-17 h-27 object-contain mb-3 sm:mb-4 lg:mb-5 ">
+          <h3 class="font-semibold text-base sm:text-lg lg:text-xl mb-2 sm:mb-3">Social Ecosystems</h3>
+          <p class="text-gray-600 text-sm sm:text-base lg:text-[15px]">Structural growth on LinkedIn and
+            Instagram
+            through data-led storytelling and community building.</p>
+        </div>
+        <div
+          class="bg-[#F5F0FF] p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="./Copywriting.png" alt="Copywriting" class="w-17 h-27 object-contain mb-3 sm:mb-4 lg:mb-5 ">
+          <h3 class="font-semibold text-base sm:text-lg lg:text-xl mb-2 sm:mb-3">Copywriting</h3>
+          <p class="text-gray-600 text-sm sm:text-base lg:text-[15px]">Conversion-focused copy that retains
+            sophistication of high-end B2B and B2C brands.</p>
+        </div>
+        <div
+          class="bg-[#F5F0FF] p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="./Web Architecture.png" alt="Web Architecture"
+            class="w-17 h-27 object-contain mb-3 sm:mb-4 lg:mb-5 ">
+          <h3 class="font-semibold text-base sm:text-lg lg:text-xl mb-2 sm:mb-3">Web Architecture</h3>
+          <p class="text-gray-600 text-sm sm:text-base lg:text-[15px]">Designing the information flow of
+            landing pages
+            for maximum clarity and user conversion.</p>
+        </div>
+        <div
+          class="bg-[#F5F0FF] p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300 lg:col-span-1 md:col-span-2">
+          <img src="./AEC Marketing Vertical.png" alt="AEC Marketing Vertical"
+            class="w-17 h-27 object-contain mb-3 sm:mb-4 lg:mb-5 ">
+          <h3 class="font-semibold text-base sm:text-lg lg:text-xl mb-2 sm:mb-3">AEC Marketing Vertical</h3>
+          <p class="text-gray-600 text-sm sm:text-base lg:text-[15px]">Specialized strategic consulting for
+            Architects,
+            Engineers, and Construction firms looking to digitize their legacy brands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I've Built -->
+  <section class="py-12 sm:py-16 md:py-20 lg:py-24 bg-[#FFF]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 sm:mb-12 lg:mb-16 gap-6 lg:gap-0">
+        <div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#9B26AF]">What I've Built</h2>
+          <p class="text-gray-600 text-base sm:text-lg mt-2">A collection of works that converted attention
+            into equity.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2 sm:gap-3 lg:gap-4">
+          <button class="bg-[#9B26AF] text-white px-3 sm:px-4 lg:px-6 py-2 rounded-full text-xs sm:text-sm font-medium"
+            onclick="filterProjects(event, 'all')">All Projects</button>
+          <button
+            class="bg-white text-gray-700 px-3 sm:px-4 lg:px-6 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-300"
+            onclick="filterProjects(event, 'web')">Web</button>
+          <button
+            class="bg-white text-gray-700 px-3 sm:px-4 lg:px-6 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-300"
+            onclick="filterProjects(event, 'blogs')">Blogs</button>
+          <button
+            class="bg-white text-gray-700 px-3 sm:px-4 lg:px-6 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-300"
+            onclick="filterProjects(event, 'social')">Social</button>
+          <button
+            class="bg-white text-gray-700 px-3 sm:px-4 lg:px-6 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-300"
+            onclick="filterProjects(event, 'interview')">Interview</button>
+        </div>
+      </div>
+
+      <!-- 
+        PROJECT CARDS — KEY CHANGES:
+        1. Removed: h-64 sm:h-80 lg:h-96  (fixed heights that caused stretching)
+        2. Removed: max-w-[340px]          (was causing width/height mismatch on mobile)
+        3. Added:   project-card class     (applies aspect-ratio: 4/3 via CSS above)
+        The background-image still uses bg-cover but now scales proportionally.
+      -->
+      <div class="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+
+        <!-- Project Card 1 - Web -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/1.png');" data-category="web"></a>
+
+        <!-- Project Card 2 - Web -->
+
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/2.png');" data-category="web"></a>
+
+        <!-- Project Card 3 - Web -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/3.png');" data-category="web"></a>
+
+        <!-- Project Card 4 - Web -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/4.png');" data-category="web"></a>
+
+        <!-- Project Card 5 - Web -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/5.png');" data-category="web"></a>
+
+        <!-- Project Card 6 - Web -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/6.png');" data-category="web"></a>
+
+        <!-- Project Card 7 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/7.png');" data-category="blogs"></a>
+
+        <!-- Project Card 8 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/8.png');" data-category="blogs"></a>
+
+        <!-- Project Card 9 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/9.png');" data-category="blogs"></a>
+
+        <!-- Project Card 10 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/10.png');" data-category="blogs"></a>
+
+        <!-- Project Card 11 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/11.png');" data-category="blogs"></a>
+
+        <!-- Project Card 12 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/12.png');" data-category="blogs"></a>
+
+        <!-- Project Card 13 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/13.png');" data-category="blogs"></a>
+
+        <!-- Project Card 14 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/14.png');" data-category="blogs"></a>
+
+        <!-- Project Card 15 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/15.png');" data-category="blogs"></a>
+
+        <!-- Project Card 16 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/16.png');" data-category="blogs"></a>
+
+        <!-- Project Card 17 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/17.png');" data-category="blogs"></a>
+
+        <!-- Project Card 18 - Blogs -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/18.png');" data-category="blogs"></a>
+
+        <!-- Project Card 19 - Social -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/19.png');" data-category="social"></a>
+
+        <!-- Project Card 20 - Social -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/20.png');" data-category="social"></a>
+
+        <!-- Project Card 21 - Social -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/21.png');" data-category="social"></a>
+
+        <!-- Project Card 22 - Social -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/22.png');" data-category="social"></a>
+
+        <!-- Project Card 23 - Social -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/23.png');" data-category="social"></a>
+
+        <!-- Project Card 24 - Social -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/24.png');" data-category="social"></a>
+
+        <!-- Project Card 25 - Social -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/25.png');" data-category="social"></a>
+
+        <!-- Project Card 26 - Social -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/26.png');" data-category="social"></a>
+
+        <!-- Project Card 27 - Social -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/27.png');" data-category="social"></a>
+
+        <!-- Project Card 28 - Interview -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/28.png');" data-category="interview"></a>
+
+        <!-- Project Card 29 - Interview -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/29.png');" data-category="interview"></a>
+
+        <!-- Project Card 30 - Interview -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/30.png');" data-category="interview"></a>
+
+        <!-- Project Card 31 - Interview -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/31.png');" data-category="interview"></a>
+
+        <!-- Project Card 32 - Interview -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/32.png');" data-category="interview"></a>
+
+        <!-- Project Card 33 - Interview -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/33.png');" data-category="interview"></a>
+
+        <!-- Project Card 34 - Interview -->
+        <a href="https://www.gsourcedata.com/bim-services/" target="_blank"
+          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          style="background-image: url('./images/34.png');" data-category="interview"></a>
+
+      </div>
+
+      <!-- View All Projects Button -->
+      <div class="text-center mt-8 sm:mt-12">
+        <button id="viewAllBtn" onclick="toggleAllProjects()"
+          class="brand-bg text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm font-semibold hover:bg-[#9B26AF] transition">
+          View All Projects
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- From Problem to Outcome -->
+  <section class="py-12 sm:py-16 md:py-20 lg:py-24"
+    style="background: url('./Case Studies Section.png') center/cover no-repeat;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-center mb-8 sm:mb-12 lg:mb-16 text-[#3F525D]">
+        From
+        Problem to Outcome</h2>
+
+      <div class="space-y-8 sm:space-y-12 lg:space-y-16">
+        <!-- Case 1 -->
+        <div class="case-study-grid grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start">
+          <div class="lg:col-span-5">
+            <h3 class="text-xl sm:text-2xl lg:text-3xl font-semibold brand-color">Boosting LinkedIn
+              Engagement
+              organically in 6 months</h3>
+            <p class="text-xs sm:text-sm text-gray-500 mt-2">CLIENT: AEC Services Outsourcing Company</p>
+          </div>
+          <div
+            class="lg:col-span-7 bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-sm border border-gray-100">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              <div>
+                <p class="uppercase text-xs font-medium text-[#B91156] mb-2">THE PROBLEM</p>
+                <p class="text-xs sm:text-sm text-gray-600">A fragmented content calendar with limited
+                  strategy, no
+                  scheduling consistency, and no clear audience targeting.</p>
+              </div>
+              <div>
+                <p class="uppercase text-xs font-medium text-[#B91156] mb-2">THE STRATEGY</p>
+                <p class="text-xs sm:text-sm text-gray-600">Built a well-structured content calendar
+                  featuring
+                  industry-specific content, planned and scheduled to maximise engagement.</p>
+              </div>
+              <div>
+                <p class="uppercase text-xs font-medium text-[#B91156] mb-2">THE OUTCOME</p>
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-bold brand-color">150%</p>
+                <p class="text-xs sm:text-sm text-gray-600">ENGAGEMENT RATE INCREASED</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="case-study-grid grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start">
+          <div class="lg:col-span-5">
+            <h3 class="text-xl sm:text-2xl lg:text-3xl font-semibold brand-color">Strategy for organically
+              increasing
+              Website Traffic in 6 months</h3>
+            <p class="text-xs sm:text-sm text-gray-500 mt-2">CLIENT: Premium Streetwear Apparel Brand</p>
+          </div>
+          <div
+            class="lg:col-span-7 bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-sm border border-gray-100">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              <div>
+                <p class="uppercase text-xs font-medium text-[#B91156] mb-2">THE PROBLEM</p>
+                <p class="text-xs sm:text-sm text-gray-600">Blog performance impacted by low SERP
+                  rankings, limited
+                  focus on trending topics, and insufficient internal linking.</p>
+              </div>
+              <div>
+                <p class="uppercase text-xs font-medium text-[#B91156] mb-2">THE STRATEGY</p>
+                <p class="text-xs sm:text-sm text-gray-600">Revamped the blog strategy- focused on
+                  trending topics,
+                  boosted on-page SEO, & improved internal linking.</p>
+              </div>
+              <div>
+                <p class="uppercase text-xs font-medium text-[#B91156] mb-2">THE OUTCOME</p>
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-bold brand-color">+40%</p>
+                <p class="text-xs sm:text-sm text-gray-600">INCREASE IN ORGANIC TRAFFIC</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How I Think -->
+  <section class="py-12 sm:py-16 md:py-20 lg:py-24 text-white"
+    style="background: url('./Process%20Section.png') center/cover no-repeat;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8 sm:mb-12">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold">How I Think</h2>
+        <p class="mt-2 sm:mt-3 text-purple-100 text-sm sm:text-base">A business-first strategy that flows like a
+          structural plan.</p>
+      </div>
+
+      <div class="process-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div
+          class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white/30 mb-4 sm:mb-6">01</div>
+          <h4 class="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Discovery</h4>
+          <p class="text-xs sm:text-sm text-purple-100">Deep-dive into business metrics, core values, and
+            competitive
+            landscape.</p>
+        </div>
+        <div
+          class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white/30 mb-4 sm:mb-6">02</div>
+          <h4 class="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Architecture</h4>
+          <p class="text-xs sm:text-sm text-purple-100">Mapping the content ecosystem and defining the
+            narrative
+            pillars.</p>
+        </div>
+        <div
+          class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white/30 mb-4 sm:mb-6">03</div>
+          <h4 class="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Execution</h4>
+          <p class="text-xs sm:text-sm text-purple-100">High-precision content creation and strategic platform
+            distribution.</p>
+        </div>
+        <div
+          class="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white/30 mb-4 sm:mb-6">04</div>
+          <h4 class="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Optimization</h4>
+          <p class="text-xs sm:text-sm text-purple-100">Analyzing data loops to refine and scale what actually
+            works.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32">
+    <div class="max-w-7xl mx-auto px-12">
+      <div class="brand-bg rounded-3xl py-24 px-12 text-center text-white mx-auto"
+        style="background: linear-gradient(135deg, #9B26AF 0%, #B91156 49%);">
+        <h2 class="text-5xl font-semibold leading-tight">Let's build something meaningful together.</h2>
+        <p class="mt-6 text-lg text-purple-100">Ready to bridge the gap between your vision and your audience's
+          attention?</p>
+        <button
+          class="mt-10 bg-white text-[#B91156] px-10 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition">
+          Connect over a Call
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+        <div>
+          <p class="font-semibold brand-color text-xl">Rachana Dighe</p>
+          <p class="text-gray-500">MSc Digital Marketing (Oxford Brookes)<br>B.Arch (Architecture)</p>
+        </div>
+        <div class="flex gap-8 mt-8 md:mt-0">
+          <a href="#" class="hover:brand-color">LinkedIn</a>
+          <a href="#" class="hover:brand-color">Email</a>
+          <a href="#" class="hover:brand-color">Portfolio PDF</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+
+    function filterProjects(event, category) {
+      const projectCards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('button[onclick^="filterProjects"]');
+
+      buttons.forEach(button => {
+        button.classList.remove('bg-[#9B26AF]', 'text-white');
+        button.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+      });
+
+      event.target.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+      event.target.classList.add('bg-[#9B26AF]', 'text-white');
+
+      projectCards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleAllProjects() {
+      const projectCards = document.querySelectorAll('.project-card');
+      const viewAllBtn = document.getElementById('viewAllBtn');
+
+      const hasHiddenCards = Array.from(projectCards).some(card => card.classList.contains('hidden'));
+
+      if (hasHiddenCards) {
+        projectCards.forEach(card => {
+          card.classList.remove('hidden');
+          card.style.display = 'block';
+        });
+        viewAllBtn.textContent = 'Show Less';
+      } else {
+        projectCards.forEach((card, index) => {
+          if (index >= 6) {
+            card.classList.add('hidden');
+            card.style.display = 'none';
+          }
+        });
+        viewAllBtn.textContent = 'View All Projects';
+      }
+    }
+  </script>
+</body>
+
+</html>
