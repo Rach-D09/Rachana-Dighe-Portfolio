@@ -368,12 +368,14 @@
           style="background-image: url('./images/10.png');" data-category="blogs"></a>
 
         <!-- Project Card 11 - Blogs -->
-        <a href="https://www.gsourcedata.com/how-to-implement-a-bim-coordination-process-in-your-project/" target="_blank"
+        <a href="https://www.gsourcedata.com/how-to-implement-a-bim-coordination-process-in-your-project/"
+          target="_blank"
           class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style="background-image: url('./images/11.png');" data-category="blogs"></a>
 
         <!-- Project Card 12 - Blogs -->
-        <a href="https://www.gsourcedata.com/5-signs-your-aec-firm-needs-to-outsource-architectural-drafting-services/" target="_blank"
+        <a href="https://www.gsourcedata.com/5-signs-your-aec-firm-needs-to-outsource-architectural-drafting-services/"
+          target="_blank"
           class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style="background-image: url('./images/12.png');" data-category="blogs"></a>
 
@@ -383,17 +385,20 @@
           style="background-image: url('./images/13.png');" data-category="blogs"></a>
 
         <!-- Project Card 14 - Blogs -->
-        <a href="https://www.gsourcedata.com/the-complete-guide-to-structural-steel-detailing-for-fabricators/" target="_blank"
+        <a href="https://www.gsourcedata.com/the-complete-guide-to-structural-steel-detailing-for-fabricators/"
+          target="_blank"
           class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style="background-image: url('./images/14.png');" data-category="blogs"></a>
 
         <!-- Project Card 15 - Blogs -->
-        <a href="https://www.gsourcedata.com/why-structural-steel-projects-fail-despite-approved-drawings/" target="_blank"
+        <a href="https://www.gsourcedata.com/why-structural-steel-projects-fail-despite-approved-drawings/"
+          target="_blank"
           class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style="background-image: url('./images/15.png');" data-category="blogs"></a>
 
         <!-- Project Card 16 - Blogs -->
-        <a href="https://www.gsourcedata.com/the-growing-role-of-steel-detailers-in-design-build-steel-projects/" target="_blank"
+        <a href="https://www.gsourcedata.com/the-growing-role-of-steel-detailers-in-design-build-steel-projects/"
+          target="_blank"
           class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style="background-image: url('./images/16.png');" data-category="blogs"></a>
 
@@ -427,15 +432,15 @@
           class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style="background-image: url('./images/25.png');" data-category="social"></a>
 
-        <!-- Project Card 26 - Social -->
+        <!-- Project Card 26 - Interview -->
         <a href="https://www.youtube.com/watch?v=DTIaEaooTuM" target="_blank"
           class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-          style="background-image: url('./images/26.png');" data-category="social"></a>
+          style="background-image: url('./images/26.png');" data-category="interview"></a>
 
-        <!-- Project Card 27 - Social -->
+        <!-- Project Card 27 - Interview -->
         <a href="https://www.youtube.com/watch?v=ihp8LYLf05k" target="_blank"
           class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-          style="background-image: url('./images/27.png');" data-category="social"></a>
+          style="background-image: url('./images/27.png');" data-category="interview"></a>
 
         <!-- Project Card 28 - Interview -->
         <a href="https://www.youtube.com/watch?v=BtwKRTJAKLQ" target="_blank"
@@ -461,17 +466,6 @@
         <a href="https://www.youtube.com/watch?v=_Lq2OZa8a5s" target="_blank"
           class="project-card bg-center bg-no-repeat rounded-3xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style="background-image: url('./images/32.png');" data-category="interview"></a>
-
-        <!-- Project Card 33 - Interview -->
-        <a href="https://www.youtube.com/watch?si=Esft6pHNXds8wJYb&v=7E3VUmy0eYM&feature=youtu.be" target="_blank"
-          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-          style="background-image: url('./images/33.png');" data-category="interview"></a>
-
-        <!-- Project Card 34 - Interview -->
-        <a href="https://www.youtube.com/watch?v=whG2YuPCkJI" target="_blank"
-          class="project-card bg-center bg-no-repeat rounded-3xl hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-          style="background-image: url('./images/34.png');" data-category="interview"></a>
-
       </div>
 
       <!-- View All Projects Button -->
@@ -650,30 +644,51 @@
       const projectCards = document.querySelectorAll('.project-card');
       const buttons = document.querySelectorAll('button[onclick^="filterProjects"]');
 
+      // Update button styles
       buttons.forEach(button => {
         button.classList.remove('bg-[#9B26AF]', 'text-white');
         button.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-300');
       });
 
-      event.target.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
-      event.target.classList.add('bg-[#9B26AF]', 'text-white');
+      // Highlight the clicked button
+      const clickedButton = event.currentTarget || event.target;
+      clickedButton.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+      clickedButton.classList.add('bg-[#9B26AF]', 'text-white');
 
+      // Filter project cards
       projectCards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
+        const cardCategory = (card.dataset.category || '').toLowerCase().trim();
+        const targetCategory = (category || '').toLowerCase().trim();
+
+        if (targetCategory === 'all' || cardCategory === targetCategory) {
           card.style.display = 'block';
+          card.classList.remove('hidden');
         } else {
           card.style.display = 'none';
+          card.classList.add('hidden');
         }
       });
+
+      // Handle the "View All" button container
+      const viewAllBtn = document.getElementById('viewAllBtn');
+      if (viewAllBtn && viewAllBtn.parentElement) {
+        if (category !== 'all') {
+          viewAllBtn.parentElement.style.display = 'none';
+        } else {
+          viewAllBtn.parentElement.style.display = 'block';
+          // Ensure button text is correct when returning to 'all'
+          viewAllBtn.textContent = 'View All Projects';
+        }
+      }
     }
 
     function toggleAllProjects() {
       const projectCards = document.querySelectorAll('.project-card');
       const viewAllBtn = document.getElementById('viewAllBtn');
 
-      const hasHiddenCards = Array.from(projectCards).some(card => card.classList.contains('hidden'));
+      const isShowingAll = viewAllBtn.textContent.trim() === 'Show Less';
 
-      if (hasHiddenCards) {
+      if (!isShowingAll) {
         projectCards.forEach(card => {
           card.classList.remove('hidden');
           card.style.display = 'block';
@@ -681,14 +696,50 @@
         viewAllBtn.textContent = 'Show Less';
       } else {
         projectCards.forEach((card, index) => {
-          if (index >= 6) {
+          if (index >= 12) {
             card.classList.add('hidden');
             card.style.display = 'none';
+          } else {
+            card.classList.remove('hidden');
+            card.style.display = 'block';
           }
         });
         viewAllBtn.textContent = 'View All Projects';
       }
     }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function randomizeProjects() {
+      const grid = document.querySelector('.project-grid');
+      const cards = Array.from(grid.querySelectorAll('.project-card'));
+      const shuffledCards = shuffleArray(cards);
+
+      shuffledCards.forEach(card => grid.appendChild(card));
+
+      shuffledCards.forEach((card, index) => {
+        if (index >= 12) {
+          card.classList.add('hidden');
+          card.style.display = 'none';
+        } else {
+          card.classList.remove('hidden');
+          card.style.display = 'block';
+        }
+      });
+
+      const viewAllBtn = document.getElementById('viewAllBtn');
+      if (viewAllBtn) viewAllBtn.textContent = 'View All Projects';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      randomizeProjects();
+    });
   </script>
 </body>
 
