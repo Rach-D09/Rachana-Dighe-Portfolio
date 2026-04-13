@@ -107,12 +107,12 @@
       <div class="text-xl sm:text-2xl font-semibold brand-color">Rachana Dighe</div>
 
       <!-- Desktop Navigation -->
-      <div class="nav-links hidden md:flex items-center gap-6 sm:gap-8 lg:gap-10 text-sm font-medium">
+      <!-- <div class="nav-links hidden md:flex items-center gap-6 sm:gap-8 lg:gap-10 text-sm font-medium">
         <a href="#" class="hover:brand-color transition-colors">Work</a>
         <a href="#" class="hover:brand-color transition-colors">Services</a>
         <a href="#" class="hover:brand-color transition-colors">Process</a>
         <a href="#" class="hover:brand-color transition-colors">About</a>
-      </div>
+      </div> -->
 
       <!-- Mobile Menu Button -->
       <button
@@ -133,10 +133,10 @@
 
     <!-- Mobile Navigation Menu -->
     <div id="mobileMenu" class="nav-links md:hidden">
-      <a href="#" class="hover:brand-color transition-colors py-2">Work</a>
+      <!-- <a href="#" class="hover:brand-color transition-colors py-2">Work</a>
       <a href="#" class="hover:brand-color transition-colors py-2">Services</a>
       <a href="#" class="hover:brand-color transition-colors py-2">Process</a>
-      <a href="#" class="hover:brand-color transition-colors py-2">About</a>
+      <a href="#" class="hover:brand-color transition-colors py-2">About</a> -->
       <a href="tel:+91960483399"> <button
           class="brand-bg text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#9B26AF] transition mt-2 w-full">
           Let's Connect
@@ -656,11 +656,20 @@
       clickedButton.classList.add('bg-[#9B26AF]', 'text-white');
 
       // Filter project cards
-      projectCards.forEach(card => {
+      projectCards.forEach((card, index) => {
         const cardCategory = (card.dataset.category || '').toLowerCase().trim();
         const targetCategory = (category || '').toLowerCase().trim();
 
-        if (targetCategory === 'all' || cardCategory === targetCategory) {
+        if (targetCategory === 'all') {
+          // For 'All Projects', show the first 8 cards and hide the rest
+          if (index < 8) {
+            card.style.display = 'block';
+            card.classList.remove('hidden');
+          } else {
+            card.style.display = 'none';
+            card.classList.add('hidden');
+          }
+        } else if (cardCategory === targetCategory) {
           card.style.display = 'block';
           card.classList.remove('hidden');
         } else {
@@ -696,7 +705,7 @@
         viewAllBtn.textContent = 'Show Less';
       } else {
         projectCards.forEach((card, index) => {
-          if (index >= 12) {
+          if (index >= 8) {
             card.classList.add('hidden');
             card.style.display = 'none';
           } else {
@@ -708,23 +717,11 @@
       }
     }
 
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
-    function randomizeProjects() {
-      const grid = document.querySelector('.project-grid');
-      const cards = Array.from(grid.querySelectorAll('.project-card'));
-      const shuffledCards = shuffleArray(cards);
-
-      shuffledCards.forEach(card => grid.appendChild(card));
-
-      shuffledCards.forEach((card, index) => {
-        if (index >= 12) {
+    window.addEventListener('DOMContentLoaded', () => {
+      // Initial display: show only the first 8 projects in their original order
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach((card, index) => {
+        if (index >= 8) {
           card.classList.add('hidden');
           card.style.display = 'none';
         } else {
@@ -732,13 +729,6 @@
           card.style.display = 'block';
         }
       });
-
-      const viewAllBtn = document.getElementById('viewAllBtn');
-      if (viewAllBtn) viewAllBtn.textContent = 'View All Projects';
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      randomizeProjects();
     });
   </script>
 </body>
